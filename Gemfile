@@ -16,6 +16,7 @@ gem 'pg'
 gem 'sendgrid'
 gem 'simple_form', '>= 3.0.0.rc'
 gem 'thin'
+gem 'protected_attributes'
 group :development do
   gem 'html2haml'
   gem 'hub', :require=>nil
