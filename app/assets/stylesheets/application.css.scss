@@ -16,3 +16,29 @@
   padding: 10px 20px;
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
 }
+
+.footer {
+  width: 100%;
+  min-height: 130px;
+  background-color: black;
+  color: white;
+  width: 100%;
+  margin-top: 20px;
+  padding-top: 30px;
+  text-align: center;
+  div {
+    margin: 0 auto;
+  }
+  ul {
+    display: inline-block;
+    margin-top: 20px;
+  }
+  .slogan {
+    font-size: 48px;
+  }
+  .social {
+    width: 40%;
+    height: 50px;
+    line-height: 50px;
+  }
+}
