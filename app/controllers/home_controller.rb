@@ -13,7 +13,9 @@ class HomeController < ApplicationController
     response.each do |tweet|
       content = tweet['text']
       date = DateTime.parse(tweet['created_at']).strftime('%d/%m/%Y')
-      t = Tweet.new(content, date)
+      name = tweet['user']['name']
+      screen_name = tweet['user']['screen_name']
+      t = Tweet.new(content, date, name, screen_name)
       @tweets.push(t)
     end
   end
