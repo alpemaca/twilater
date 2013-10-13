@@ -1,0 +1,21 @@
+%ul#main-tabs.nav.nav-tabs
+  %li.active
+    = link_to 'Tweets favoritos', '#tweets'
+  %li
+    = link_to 'Webs enlazadas', '#webs'
+  %li
+    = link_to 'Contenido interesante', '#content'
+
+.tab-content
+  #tweets.tab-pane.active
+    TWEETSSSSSSSSSS
+  #webs.tab-pane
+    WEBSSSSSSSSSSSSS
+  #content.tab-pane
+    CONTENTTTTTTTT
+
+
+-#-@tweets.each do |tweet|
+-#  %p=tweet.content
+-#  %p=tweet.date
+
