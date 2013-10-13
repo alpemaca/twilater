@@ -1,18 +1,29 @@
-%ul#main-tabs.nav.nav-tabs
-  %li.active
-    = link_to 'Tweets favoritos', '#tweets'
-  %li
-    = link_to 'Webs enlazadas', '#webs'
-  %li
-    = link_to 'Contenido interesante', '#content'
+#main-tabs-section
+  %ul.nav.nav-tabs
+    %li.active
+      = link_to 'Tweets favoritos', '#tweets'
+    %li
+      = link_to 'Webs enlazadas', '#webs'
+    %li
+      = link_to 'Contenido interesante', '#content'
 
-.tab-content
-  #tweets.tab-pane.active
-    TWEETSSSSSSSSSS
-  #webs.tab-pane
-    WEBSSSSSSSSSSSSS
-  #content.tab-pane
-    CONTENTTTTTTTT
+  .tab-content
+    #tweets.tab-pane.active
+      %ul
+        -@tweets.each do |tweet|
+          %li
+            .tweet
+              .tweet-header
+                %b= tweet.name
+                %span= tweet.screen_name
+                %span.pull-right= tweet.date
+              .tweet-content
+                %p= tweet.content
+            %hr
+    #webs.tab-pane
+      WEBSSSSSSSSSSSSS
+    #content.tab-pane
+      CONTENTTTTTTTT
 
 
 -#-@tweets.each do |tweet|
