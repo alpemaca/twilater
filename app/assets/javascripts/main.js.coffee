@@ -13,4 +13,14 @@ $ ->
 
     $(this).closest('li').children('.tweet').toggle()
     $(this).toggleClass 'active'
+    return
   )
+
+  $('#webs').on('click', '.link', ->
+    $('#iframe-container').children('object').remove()
+    iframe = $('<object type="text/html" data="'+$(this).text()+'"></object>')
+    $('#iframe-container').append(iframe)
+    return
+  )
+  return
+

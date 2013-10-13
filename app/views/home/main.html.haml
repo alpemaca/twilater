@@ -1,26 +1,28 @@
-#main-tabs-section
-  %ul.nav.nav-tabs
-    %li.active
-      = link_to 'Tweets favoritos', '#tweets'
-    %li
-      = link_to 'Webs enlazadas', '#webs'
-    %li
-      = link_to 'Contenido interesante', '#content'
+.row-fluid
+  .span6#main-tabs-section
+    %ul.nav.nav-tabs
+      %li.active
+        = link_to 'Tweets favoritos', '#tweets'
+      %li
+        = link_to 'Webs enlazadas', '#webs'
+      %li
+        = link_to 'Contenido interesante', '#content'
 
-  .tab-content
-    #tweets.tab-pane.active
-      %ul
-        -@tweets.each do |tweet|
-          %li
-            = render partial: 'layouts/tweet', locals: {tweet: tweet}
-            %hr
-    #webs.tab-pane
-      %ul
-        -@webs.each do |web|
-          %li
-            .row-fluid
-              .span8= link_to web.link, web.link
-              .span4.toggle-display-tweet= link_to 'ver tweet', 'javascript:void(0)'
-            = render partial: 'layouts/tweet', locals: {tweet: web.tweet}
-    #content.tab-pane
-      CONTENTTTTTTTT
+    .tab-content
+      #tweets.tab-pane.active
+        %ul
+          -@tweets.each do |tweet|
+            %li
+              = render partial: 'layouts/tweet', locals: {tweet: tweet}
+              %hr
+      #webs.tab-pane
+        %ul
+          -@webs.each do |web|
+            %li
+              .row-fluid
+                .span8.link= link_to web.link, 'javascript:void(0)'
+                .span4.toggle-display-tweet= link_to 'ver tweet', 'javascript:void(0)'
+              = render partial: 'layouts/tweet', locals: {tweet: web.tweet}
+      #content.tab-pane
+        CONTENTTTTTTTT
+  #iframe-container.span6
