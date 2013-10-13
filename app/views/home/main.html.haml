@@ -12,21 +12,15 @@
       %ul
         -@tweets.each do |tweet|
           %li
-            .tweet
-              .tweet-header
-                %b= tweet.name
-                %span= tweet.screen_name
-                %span.pull-right= tweet.date
-              .tweet-content
-                %p= tweet.content
+            = render partial: 'layouts/tweet', locals: {tweet: tweet}
             %hr
     #webs.tab-pane
-      WEBSSSSSSSSSSSSS
+      %ul
+        -@webs.each do |web|
+          %li
+            .row-fluid
+              .span8= link_to web.link, web.link
+              .span4.toggle-display-tweet= link_to 'ver tweet', 'javascript:void(0)'
+            = render partial: 'layouts/tweet', locals: {tweet: web.tweet}
     #content.tab-pane
       CONTENTTTTTTTT
-
-
--#-@tweets.each do |tweet|
--#  %p=tweet.content
--#  %p=tweet.date
-

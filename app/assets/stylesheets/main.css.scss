@@ -1,12 +1,15 @@
 #main-tabs-section {
   width: 450px;
-}
-
-#tweets {
-  .tweet {
-  }
   ul li {
     list-style: none;
   }
+}
 
+#webs {
+  .tweet {
+    display: none;
+  }
+  .toggle-display-tweet {
+    cursor: pointer;
+  }
 }

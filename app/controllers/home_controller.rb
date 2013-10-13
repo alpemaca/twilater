@@ -7,12 +7,13 @@ class HomeController < ApplicationController
     # TO-DO: Why this not working?
     # access_token = prepare_access_token(ENV['OMNIAUTH_PROVIDER_TOKEN'], ENV['OMNIAUTH_PROVIDER_TOKEN_SECRET'])
     access_token = prepare_access_token('523342352-Vma5JhF4nAvPbWDAa11d1IyOr0JoW3BM7ZI5CO3q', 'f70dm8QAySlK7kBqXhmTCWGO8QSp9UEuwv2HTB6LI74ms')
-    response = access_token.request(:get, "https://api.twitter.com/1.1/favorites/list.json?include_entities=false")
+    response = access_token.request(:get, "https://api.twitter.com/1.1/favorites/list.json")
     
     # TO-DO: Catch response error.
     
     response = JSON.parse(response.body)
     @tweets = []
+    @webs = []
     response.each do |tweet|
       content = tweet['text']
       date = DateTime.parse(tweet['created_at']).strftime('%d/%m/%Y')
@@ -20,6 +21,12 @@ class HomeController < ApplicationController
       screen_name = tweet['user']['screen_name']
       t = Tweet.new(content, date, name, screen_name)
       @tweets.push(t)
+
+      tweet['entities']['urls'].each do |url|
+        w = Web.new(url['url'], t)
+        puts url['url']
+        @webs.push(w)
+      end
     end
   end
 
