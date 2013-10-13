@@ -17,10 +17,17 @@ $ ->
   )
 
   $('#webs').on('click', '.link', ->
-    $('#iframe-container').children('object').remove()
-    iframe = $('<object type="text/html" data="'+$(this).text()+'"></object>')
-    $('#iframe-container').append(iframe)
+    iframe-container = $('#iframe-container')
+    href = $(this).text()
+
+    iframe-container.children('object').remove()
+
+    iframe = $('<object draggable type="text/html" data="'+href+'"></object>')
+    iframe-container.append(iframe)
+
+    iframe-container.children('a').attr('href', href)
     return
   )
+
   return
 

@@ -5,7 +5,7 @@
         = link_to 'Tweets favoritos', '#tweets'
       %li
         = link_to 'Webs enlazadas', '#webs'
-      %li
+      %li#content-tab
         = link_to 'Contenido interesante', '#content'
 
     .tab-content
@@ -26,3 +26,4 @@
       #content.tab-pane
         CONTENTTTTTTTT
   #iframe-container.span6
+    = link_to 'ver página en una ventana independiente', 'javascript:void(0)', target: '_blank'
