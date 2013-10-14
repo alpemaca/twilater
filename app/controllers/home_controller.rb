@@ -17,21 +17,21 @@ class HomeController < ApplicationController
     response = JSON.parse(response.body)
     @tweets = []
     @webs = []
-   # response.each do |tweet|
-   #   puts tweet
-   #   content = tweet['text']
-   #   date = DateTime.parse(tweet['created_at']).strftime('%d/%m/%Y')
-   #   name = tweet['user']['name']
-   #   screen_name = tweet['user']['screen_name']
-   #   t = Tweet.new(content, date, name, screen_name)
-   #   @tweets.push(t)
+    response.each do |tweet|
+      puts tweet
+      content = tweet['text']
+      date = DateTime.parse(tweet['created_at']).strftime('%d/%m/%Y')
+      name = tweet['user']['name']
+      screen_name = tweet['user']['screen_name']
+      t = Tweet.new(content, date, name, screen_name)
+      @tweets.push(t)
 
-   #   tweet['entities']['urls'].each do |url|
-   #     w = Web.new(url['url'], t)
-   #     puts url['url']
-   #     @webs.push(w)
-   #   end
-   # end
+      tweet['entities']['urls'].each do |url|
+        w = Web.new(url['url'], t)
+        puts url['url']
+        @webs.push(w)
+      end
+    end
   end
 
   def prepare_access_token(oauth_token, oauth_token_secret)

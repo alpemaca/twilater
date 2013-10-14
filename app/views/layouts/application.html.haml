@@ -9,14 +9,15 @@
         = csrf_meta_tags
         = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
-    .container
-      = render 'layouts/header'
-    #main{:role => "main"}
+    #main-container
       .container
-        .content
-          .row
-            .span12
-              = yield
-      / ! end of .container
-    / ! end of #main
-    = render 'layouts/footer'
+        = render 'layouts/header'
+      #main{:role => "main"}
+        .container
+          .content
+            .row
+              .span12
+                = yield
+        / ! end of .container
+      / ! end of #main
+      = render 'layouts/footer'
