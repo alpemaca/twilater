@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def main
     @content = Content.new
-    @contents = Content.all
+    @contents = Content.where(user: current_user)
 
     # TO-DO: Why this not working?
     # access_token = prepare_access_token(ENV['OMNIAUTH_PROVIDER_TOKEN'], ENV['OMNIAUTH_PROVIDER_TOKEN_SECRET'])
