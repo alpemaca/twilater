@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     # TO-DO: Why this not working?
     # access_token = prepare_access_token(ENV['OMNIAUTH_PROVIDER_TOKEN'], ENV['OMNIAUTH_PROVIDER_TOKEN_SECRET'])
     access_token = prepare_access_token('523342352-Vma5JhF4nAvPbWDAa11d1IyOr0JoW3BM7ZI5CO3q', 'f70dm8QAySlK7kBqXhmTCWGO8QSp9UEuwv2HTB6LI74ms')
-    response = access_token.request(:get, "https://api.twitter.com/1.1/favorites/list.json")
+    response = access_token.request(:get, "https://api.twitter.com/1.1/favorites/list.json?count=200")
 
     # TO-DO: Catch response error.
 
