@@ -25,6 +25,7 @@ class ContentsController < ApplicationController
   # POST /contents.json
   def create
     @content = Content.new(content_params)
+    @content.user_id = current_user.id
     @content.save
     redirect_to :back
   end
