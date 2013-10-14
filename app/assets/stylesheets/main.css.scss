@@ -13,10 +13,35 @@
   }
 }
 
+#content {
+  #new-content {
+    display:none
+  }
+  input[type="text"], textarea {
+    width: 90%;
+  }
+  textarea {
+    height: 300px
+  }
+  input[type="button"] {
+    margin-right: 40px;
+  }
+}
+
+#contents-list {
+  h4 {
+    cursor: pointer;
+  }
+}
+
 #iframe-container {
   text-align: center;
   object {
     width: 100%;
     height: 800px;
   }
+}
+
+#content-container {
+  display: none;
 }

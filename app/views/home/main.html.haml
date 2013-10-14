@@ -24,6 +24,27 @@
                 .span4.toggle-display-tweet= link_to 'ver tweet', 'javascript:void(0)'
               = render partial: 'layouts/tweet', locals: {tweet: web.tweet}
       #content.tab-pane
-        CONTENTTTTTTTT
-  #iframe-container.span6
-    = link_to 'ver página en una ventana independiente', 'javascript:void(0)', target: '_blank'
+        = link_to 'Añadir nuevo contenido', 'javascript:void(0)'
+        #new-content
+          = simple_form_for(@content) do |f|
+            = f.error_notification
+
+            .form-inputs
+              = f.input :title
+              = f.input :text
+
+            .form-actions
+              = f.button :submit
+
+        %ul#contents-list
+          -@contents.each do |content|
+            %li
+              %h4= content.title
+              %p.hidden= content.text
+
+  .span6
+    #iframe-container
+      = link_to 'ver página en una ventana independiente', 'javascript:void(0)', target: '_blank'
+    #content-container
+      %h2
+      %p

@@ -4,6 +4,9 @@ class HomeController < ApplicationController
   end
 
   def main
+    @content = Content.new
+    @contents = Content.all
+
     # TO-DO: Why this not working?
     # access_token = prepare_access_token(ENV['OMNIAUTH_PROVIDER_TOKEN'], ENV['OMNIAUTH_PROVIDER_TOKEN_SECRET'])
     access_token = prepare_access_token('523342352-Vma5JhF4nAvPbWDAa11d1IyOr0JoW3BM7ZI5CO3q', 'f70dm8QAySlK7kBqXhmTCWGO8QSp9UEuwv2HTB6LI74ms')
@@ -14,20 +17,21 @@ class HomeController < ApplicationController
     response = JSON.parse(response.body)
     @tweets = []
     @webs = []
-    response.each do |tweet|
-      content = tweet['text']
-      date = DateTime.parse(tweet['created_at']).strftime('%d/%m/%Y')
-      name = tweet['user']['name']
-      screen_name = tweet['user']['screen_name']
-      t = Tweet.new(content, date, name, screen_name)
-      @tweets.push(t)
+   # response.each do |tweet|
+   #   puts tweet
+   #   content = tweet['text']
+   #   date = DateTime.parse(tweet['created_at']).strftime('%d/%m/%Y')
+   #   name = tweet['user']['name']
+   #   screen_name = tweet['user']['screen_name']
+   #   t = Tweet.new(content, date, name, screen_name)
+   #   @tweets.push(t)
 
-      tweet['entities']['urls'].each do |url|
-        w = Web.new(url['url'], t)
-        puts url['url']
-        @webs.push(w)
-      end
-    end
+   #   tweet['entities']['urls'].each do |url|
+   #     w = Web.new(url['url'], t)
+   #     puts url['url']
+   #     @webs.push(w)
+   #   end
+   # end
   end
 
   def prepare_access_token(oauth_token, oauth_token_secret)

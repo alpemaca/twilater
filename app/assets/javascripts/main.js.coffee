@@ -1,4 +1,13 @@
 $ ->
+  $('.nav-tabs').click('a', (e) ->
+    if e.target.text == 'Contenido interesante'
+      $('#iframe-container').hide()
+      $('#content-container').show()
+    else
+      $('#iframe-container').show()
+      $('#content-container').hide()
+  )
+
   $('#main-tabs-section').children('ul').on('click', 'a', (e) ->
     e.preventDefault()
     $(this).tab 'show'
@@ -27,6 +36,16 @@ $ ->
 
     iframe-container.children('a').attr('href', href)
     return
+  )
+
+  $('#content').on('click', 'a', ->
+    $('#new-content').show()
+  )
+
+  $('#contents-list').on('click', 'h4', ->
+    content = $('#content-container')
+    content.children('h2').text($(this).text())
+    content.children('p').text($(this).closest('li').children('p').text())
   )
 
   return

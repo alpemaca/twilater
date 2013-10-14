@@ -2,7 +2,7 @@
 
 %table
   %tr
-    %th Link
+    %th Title
     %th Text
     %th
     %th
@@ -10,7 +10,7 @@
 
   - @contents.each do |content|
     %tr
-      %td= content.link
+      %td= content.title
       %td= content.text
       %td= link_to 'Show', content
       %td= link_to 'Edit', edit_content_path(content)

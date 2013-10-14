@@ -25,16 +25,8 @@ class ContentsController < ApplicationController
   # POST /contents.json
   def create
     @content = Content.new(content_params)
-
-    respond_to do |format|
-      if @content.save
-        format.html { redirect_to @content, notice: 'Content was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @content }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @content.errors, status: :unprocessable_entity }
-      end
-    end
+    @content.save
+    redirect_to :back
   end
 
   # PATCH/PUT /contents/1
@@ -69,6 +61,6 @@ class ContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.require(:content).permit(:link, :text)
+      params.require(:content).permit(:title, :text)
     end
 end
